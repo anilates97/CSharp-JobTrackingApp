@@ -1,5 +1,7 @@
 # İş Takip Projesi
 
+Projede ajax,javascript,jquery ve bootstraptan yararlanılmıştır.
+
 Kısaca anlatmak gerekirse projede bir yönetici ve çalışanlar var. 
   
 Yönetici: </br>  
