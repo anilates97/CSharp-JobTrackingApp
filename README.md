@@ -1,6 +1,7 @@
 # İş Takip Projesi
 
 Projede ajax,javascript,jquery ve bootstraptan yararlanılmıştır.
+Aynı zamanda projede katmanlı mimari kullanılmıştır.
 
 Kısaca anlatmak gerekirse projede bir yönetici ve çalışanlar var. 
   
