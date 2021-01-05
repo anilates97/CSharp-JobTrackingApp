@@ -35,22 +35,22 @@ namespace MyProject.ToDo.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(AppUserListViewModel model, IFormFile resim)
+        public async Task<IActionResult> Index(AppUserListViewModel model, IFormFile resim) // resim ekleme için IFormFile kullandık
         {
             // resim ekleme
             if (ModelState.IsValid)
             {
                 var guncellenecekKullanici = _userManager.Users.FirstOrDefault(I => I.Id == model.Id);
-                if (resim != null)
+                if (resim != null)  // veritabanını gereksiz yere yormamak amacıyla bu kontrolü yapıyoruz
                 {
-                    string uzanti = Path.GetExtension(resim.FileName);
+                    string uzanti = Path.GetExtension(resim.FileName);  
                     string resimAd = Guid.NewGuid() + uzanti;
                     string path = Path.Combine(Directory.GetCurrentDirectory()
                         , "wwwroot/img/" + resimAd);
                     using var stream = new FileStream(path, FileMode.Create);
                     await resim.CopyToAsync(stream);
 
-                    guncellenecekKullanici.Picture = resimAd;
+                    guncellenecekKullanici.Picture = resimAd;  
                 }
 
                 guncellenecekKullanici.Name = model.Name;
